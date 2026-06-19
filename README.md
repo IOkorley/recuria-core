@@ -2,11 +2,11 @@
 
 ## Overview
 
-RECURIA is a mathematically grounded feature engineering framework designed to model instability, transitions, and dynamic state changes in complex systems.
+RECURIA is a mathematically grounded feature engineering framework for modeling instability, transitions, and dynamic state changes in complex systems.
 
-Rather than optimizing a domain-specific model, RECURIA investigates whether a common mathematical representation of instability can generalize across healthcare, environmental systems, transportation, energy forecasting, and retail demand prediction.
+Rather than developing another domain-specific predictive model, RECURIA investigates whether a common mathematical representation of instability can describe state transitions across fundamentally different systems, including healthcare, environmental monitoring, energy forecasting, transportation demand, and retail dynamics.
 
-The framework was evaluated across multiple domains using standard machine learning baselines and reproducible pipelines.
+The framework emphasizes interpretability, reproducibility, and empirical validation across multiple domains.
 
 ---
 
@@ -14,38 +14,54 @@ The framework was evaluated across multiple domains using standard machine learn
 
 Can a common mathematical representation of instability and transition dynamics provide useful predictive structure across fundamentally different systems?
 
+Rather than assuming each domain requires unique handcrafted features, RECURIA explores whether transition behavior itself can be represented through a shared mathematical framework.
+
 ---
 
 ## Core Mathematical Quantities
 
-### Instability Magnitude
+### Instability Magnitude (η)
 
 η represents the local magnitude of change within a system.
 
-### Oscillatory Transition State
+### Oscillatory Transition State (r)
 
 r = η(sinθ + cosθ)
 
-This quantity combines instability and directional phase information.
+This quantity combines instability and directional phase information to represent transitional behavior.
 
-### Curvature
+### Curvature (r'')
 
-r'' captures acceleration and curvature of system behavior.
+r'' captures acceleration and curvature of system behavior, providing information about how rapidly a system's dynamics are changing.
 
-### Transition Interaction Term
+### Transition Interaction Term (m)
 
 m = ηrr''
 
-This interaction term is intended to characterize moments of transition, instability accumulation, and structural change.
+This interaction term is intended to characterize moments of instability accumulation, structural change, and state transition.
 
 ---
 
-## Domains Evaluated
+## Framework Philosophy
+
+Most machine learning workflows rely heavily on domain-specific feature engineering.
+
+RECURIA investigates an alternative hypothesis:
+
+> Systems undergoing transition may exhibit common mathematical signatures regardless of domain.
+
+Under this view, healthcare deterioration, environmental stress, transportation disruptions, energy demand fluctuations, and economic demand shifts may share underlying structural properties that can be represented through interpretable mathematical quantities.
+
+---
+
+## Validation Studies
+
+RECURIA was evaluated across multiple domains including:
 
 ### Healthcare
 
 * Clinical Deterioration Prediction
-* Multiple Sclerosis Conversion
+* Multiple Sclerosis Conversion Prediction
 * Autoimmune Disorder Classification
 
 ### Environmental Systems
@@ -59,36 +75,67 @@ This interaction term is intended to characterize moments of transition, instabi
 * Bike-Sharing Demand Forecasting
 * Residential Energy Forecasting
 
+Each study compares RECURIA-derived features against standard machine learning baselines using reproducible pipelines and held-out evaluation data.
+
+The objective is not to maximize benchmark performance on a single task, but to investigate whether a common mathematical representation of instability can generalize across unrelated systems.
+
 ---
 
 ## Repository Structure
 
 ```text
 src/
+├── recuria.py
+├── features.py
+├── train.py
+└── evaluate.py
+
 notebooks/
+└── 01_analysis.ipynb
+
 results/
+├── metrics.csv
+├── figures/
+└── confusion_matrices/
+
 data/
+└── dataset_source.md
 ```
 
 ---
 
-## Research Philosophy
+## Design Principles
 
-The objective of RECURIA is not to replace machine learning models.
+RECURIA was developed with four guiding principles:
 
-Instead, it explores whether mathematically interpretable features can provide useful structure for understanding transitions in complex systems.
+1. Interpretability over complexity
+2. Mathematical transparency
+3. Cross-domain applicability
+4. Reproducible evaluation
+
+The framework is intended as a feature engineering methodology rather than a replacement for existing machine learning models.
+
+---
+
+## Research Interests
+
+* Mechanistic Interpretability
+* Dynamic Systems
+* Time-Series Analysis
+* Feature Engineering
+* Reliable Machine Learning Systems
+* Healthcare AI
 
 ---
 
 ## Author
 
-Ishmaelina Okorley
+**Ishmaelina Okorley**
 
-Research interests:
+Independent researcher exploring mathematically interpretable representations of instability, transition dynamics, and complex system behavior across domains.
 
-* Mechanistic Interpretability
-* AI Safety
-* Dynamic Systems
-* Time-Series Analysis
-* Feature Engineering
-* Healthcare AI
+---
+
+## License
+
+This project is released under the MIT License.
